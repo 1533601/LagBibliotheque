@@ -8,6 +8,6 @@ namespace LagLibreary
 {
     public interface Icomparable
     {
-        public int CompareTo(object obj);
+        public int CompareTo(Document other);
     }
 }
