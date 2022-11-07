@@ -18,7 +18,7 @@ namespace LagLibreary
             this.titre = titre;
             this.auteur = auteur;
         }
-        public int CompareTo(object obj)
+        public int CompareTo(Document other)
         {
             throw new NotImplementedException();
         }

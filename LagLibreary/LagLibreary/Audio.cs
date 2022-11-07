@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LagLibreary
 {
-    internal class Audio : Document, IDescription, IImprime
+    internal class Audio : Document, IDescription
     {
         int nbMinutes;
         string format;
@@ -17,11 +17,6 @@ namespace LagLibreary
             this.format = format;
         }
         public string GetDescription()
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetNbPages()
         {
             throw new NotImplementedException();
         }
