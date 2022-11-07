@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bEjU4K5sZbCtwKde4v7MyNlSg4WzvmIwantFCG3zHjh7h41B/WplquBbUUXD0kGJD5yt6ANXl+gWUvrC48PBag==",
+  "dgSpecHash": "gvkX6uxtF7Z924wZhOStCMV5VX+WosJKzXxIuX1xA4s71QIjWSOOLTw4f0jtLAk1FRvQf3XeJagqBiLiwyrdKw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\1533601\\Desktop\\LagLibreary\\LagLibreary\\LagLibreary.csproj",
+  "projectFilePath": "C:\\Users\\1533601\\Desktop\\travail finale\\LagBibliotheque\\LagLibreary\\LagLibreary\\LagLibreary.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1533601\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\1533601\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

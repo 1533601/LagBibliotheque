@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace LagLibreary
 {
-    internal interface IImprime
+    public interface IImprime
     {
+        public int GetNbPages();
     }
 }

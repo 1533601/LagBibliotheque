@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace LagLibreary
 {
-    internal interface IDescription
+    public interface IDescription
     {
+        public string GetDescription();
     }
 }

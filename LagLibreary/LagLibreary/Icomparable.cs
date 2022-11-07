@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace LagLibreary
 {
-    internal interface Icomparable
+    public interface Icomparable
     {
+        public int CompareTo(object obj);
     }
 }

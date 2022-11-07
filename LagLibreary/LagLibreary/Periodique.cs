@@ -6,7 +6,26 @@ using System.Threading.Tasks;
 
 namespace LagLibreary
 {
-    internal class Periodique
+    public class Periodique : Document, IDescription, IImprime
     {
+        int annee;
+        int numero;
+        int nbPages;
+
+        public Periodique(string titre, string auteur, int annee, int numero, int nbPages) : base(titre, auteur)
+        {
+            this.annee = annee;
+            this.numero = numero;
+            this.nbPages = nbPages;
+        }
+        public string GetDescription()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetNbPages()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
