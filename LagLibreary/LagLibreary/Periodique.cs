@@ -18,14 +18,22 @@ namespace LagLibreary
             this.numero = numero;
             this.nbPages = nbPages;
         }
+        public int GetAnnee()
+        {
+            return this.annee;
+        }
+        public int GetNumero()
+        {
+            return this.numero;
+        }
         public string GetDescription()
         {
-            throw new NotImplementedException();
+            return "Description: " + GetTitre() + " " + GetAuteur() + " " + GetAnnee() + " " + GetNumero() + " " + GetNbPages();
         }
 
         public int GetNbPages()
         {
-            throw new NotImplementedException();
+            return this.nbPages;
         }
     }
 }

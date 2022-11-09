@@ -18,6 +18,14 @@ namespace LagLibreary
             this.titre = titre;
             this.auteur = auteur;
         }
+        public string GetTitre()
+        {
+            return this.titre;
+        }
+        public string GetAuteur()
+        {
+            return this.auteur;
+        }
         public int CompareTo(Document other)
         {
             throw new NotImplementedException();

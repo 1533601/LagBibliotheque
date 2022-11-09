@@ -16,9 +16,17 @@ namespace LagLibreary
             this.nbMinutes = nbMinutes;
             this.format = format;
         }
+        public int GetNbMinutes()
+        {
+            return this.nbMinutes;
+        }
+        public string GetFormat()
+        {
+            return this.format;
+        }
         public string GetDescription()
         {
-            throw new NotImplementedException();
+            return "Description: " + GetTitre() + " " + GetAuteur() + " " + GetNbMinutes() + " " + GetFormat();
         }
     }
 }
