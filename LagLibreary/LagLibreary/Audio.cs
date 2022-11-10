@@ -11,7 +11,7 @@ namespace LagLibreary
         int nbMinutes;
         string format;
 
-        public Audio (string titre, string auteur, int nbMinutes, string format) : base(titre, auteur)
+        public Audio (string titre, string auteur,string description,  int nbMinutes, string format) : base(titre, auteur, description)
         {
             this.nbMinutes = nbMinutes;
             this.format = format;
@@ -26,7 +26,7 @@ namespace LagLibreary
         }
         public string GetDescription()
         {
-            return "Description: " + GetTitre() + " " + GetAuteur() + " " + GetNbMinutes() + " " + GetFormat();
+            return Description();
         }
     }
 }

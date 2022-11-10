@@ -14,7 +14,7 @@ namespace LagLibreary
         string isbn;
         string cote;
 
-        public Livre (string titre, string auteur, string editeur, DateTime datePublication, int nbPages, string isbn, string cote) : base(titre, auteur)
+        public Livre (string titre, string auteur,string description,  string editeur, DateTime datePublication, int nbPages, string isbn, string cote) : base(titre, auteur, description)
         {
             this.editeur = editeur;
             this.datePublication = datePublication;
@@ -40,7 +40,7 @@ namespace LagLibreary
         }
         public string GetDescription()
         {
-            return "Description: " + GetTitre() + " " + GetAuteur() + " " + GetEditeur() + " " + GetDatePublication() + " " + GetISBN() + " " + GetCote() + " " + GetNbPages();
+            return Description();
         }
 
         public int GetNbPages()

@@ -10,25 +10,88 @@ namespace LagLibreary
     {
         string titre;
         string auteur;
-        Membre emprunter;
-        Membre[] listeAttente;
+        string description;
+        Membre emprunteur;
+        List<Membre> listeAttente;
 
-        public Document(string titre, string auteur)
+        public Document(string titre, string auteur, string description)
         {
             this.titre = titre;
             this.auteur = auteur;
+            this.description = description;
+            this.emprunteur = null;
+            List<Membre> listeAttente = new List<Membre>();
+        }
+        public bool EstDisponible()
+        {
+            return true;
         }
         public string GetTitre()
         {
             return this.titre;
         }
+        public void SetTitre(string titre)
+        {
+            this.titre = titre;
+        }
         public string GetAuteur()
         {
             return this.auteur;
         }
+        public void SetAuteur(string auteur)
+        {
+            this.auteur = auteur;
+        }
+        public Membre GetEmprunteur()
+        {
+            return this.emprunteur;
+        }
+        public void SetEmprunteur(Membre emprunteur)
+        {
+            this.emprunteur = emprunteur;
+        }
+        public List<Membre> GetListeAttente()
+        {
+            return this.listeAttente;
+        }
+        public string Description()
+        {
+            return this.description;
+        }
+        public bool AjouterMembreListeAttente(Membre ajout)
+        {
+            if(listeAttente.Contains(ajout) || listeAttente.Count >= 2)
+            {
+                return false;
+            }
+            else
+            {
+                listeAttente.Add(ajout);
+                return true;
+            }
+        }
+        public bool EnleverMembreListeAttente(Membre retrait)
+        {
+            if(!listeAttente.Contains(retrait))
+            {
+                return false;
+            }
+            else
+            {
+                listeAttente.Remove(retrait);
+                return true;
+            }
+        }
         public int CompareTo(Document other)
         {
-            throw new NotImplementedException();
+            if(this.titre == other.GetTitre())
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace LagLibreary
         int numero;
         int nbPages;
 
-        public Periodique(string titre, string auteur, int annee, int numero, int nbPages) : base(titre, auteur)
+        public Periodique(string titre, string auteur,string description, int annee, int numero, int nbPages) : base(titre, auteur, description)
         {
             this.annee = annee;
             this.numero = numero;
@@ -28,7 +28,7 @@ namespace LagLibreary
         }
         public string GetDescription()
         {
-            return "Description: " + GetTitre() + " " + GetAuteur() + " " + GetAnnee() + " " + GetNumero() + " " + GetNbPages();
+            return Description();
         }
 
         public int GetNbPages()
