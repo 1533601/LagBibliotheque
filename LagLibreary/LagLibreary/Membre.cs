@@ -11,13 +11,12 @@ namespace LagLibreary
         string nom;
         List<Document> listeEmprunts;
         int noMembre;
-        static int nbMembresTotal = 1;
+        static int nbMembresTotal = 0;
         public Membre(string nom)
         {
+            this.noMembre = nbMembresTotal++;          
             this.nom = nom;
-            List<Document> listeEmprunts = new List<Document>();
-            this.noMembre = nbMembresTotal;
-            nbMembresTotal++;
+            this.listeEmprunts = new List<Document>();
         }
 
         public string GetNom()
@@ -42,7 +41,7 @@ namespace LagLibreary
         }
         public bool AjouterDocument(Document nouveau)
         {
-            if (listeEmprunts.Contains(nouveau) || listeEmprunts.Count > 4)
+            if (listeEmprunts.Contains(nouveau) || listeEmprunts.Count >= 4)
             {
                 return false;
             }

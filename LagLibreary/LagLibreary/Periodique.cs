@@ -12,7 +12,7 @@ namespace LagLibreary
         int numero;
         int nbPages;
 
-        public Periodique(string titre, string auteur,string description, int annee, int numero, int nbPages) : base(titre, auteur, description)
+        public Periodique(string titre, string auteur,string description, List<Membre> listeAttente, int annee, int numero, int nbPages) : base(titre, auteur, description, listeAttente)
         {
             this.annee = annee;
             this.numero = numero;

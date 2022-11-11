@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestPlatform.Common.Telemetry;
-
+﻿
 namespace LagLibreary
 {
     public class Bibliotheque

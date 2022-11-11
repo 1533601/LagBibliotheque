@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LagLibreary
 {
-    internal class Repertoire
+    public class Repertoire
     {
         List<Document> listeDocument;
         string nom;
@@ -30,7 +30,7 @@ namespace LagLibreary
         }
         public List<Document> GetListeEmprunts()
         {
-            return Membre.listeDocument;
+            return listeDocument;
         }
         public Document[] ChargerDocument(string nomFichier)
         {

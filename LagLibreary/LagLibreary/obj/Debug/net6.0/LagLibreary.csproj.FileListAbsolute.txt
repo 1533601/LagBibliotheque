@@ -22,3 +22,15 @@ C:\Users\1533601\Desktop\Prog\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\
 C:\Users\1533601\Desktop\Prog\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\refint\LagLibreary.dll
 C:\Users\1533601\Desktop\Prog\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\LagLibreary.pdb
 C:\Users\1533601\Desktop\Prog\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\ref\LagLibreary.dll
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\LagLibreary.csproj.AssemblyReference.cache
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\LagLibreary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\LagLibreary.AssemblyInfoInputs.cache
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\LagLibreary.AssemblyInfo.cs
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\LagLibreary.csproj.CoreCompileInputs.cache
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\LagLibreary.dll
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\refint\LagLibreary.dll
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\LagLibreary.pdb
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\bin\Debug\net6.0\LagLibreary.deps.json
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\bin\Debug\net6.0\LagLibreary.dll
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\bin\Debug\net6.0\LagLibreary.pdb
+C:\Users\1533601\Desktop\Dll\LagBibliotheque\LagLibreary\LagLibreary\obj\Debug\net6.0\ref\LagLibreary.dll

@@ -6,25 +6,31 @@ using System.Threading.Tasks;
 
 namespace LagLibreary
 {
-    public class Document : Icomparable
+    public abstract class Document : Icomparable
     {
         string titre;
         string auteur;
         string description;
         Membre emprunteur;
         List<Membre> listeAttente;
-
-        public Document(string titre, string auteur, string description)
+        public Document(string titre, string auteur, string description, List<Membre> listeattente) 
         {
             this.titre = titre;
             this.auteur = auteur;
             this.description = description;
+            this.listeAttente = listeattente;
             this.emprunteur = null;
-            List<Membre> listeAttente = new List<Membre>();
         }
         public bool EstDisponible()
         {
-            return true;
+            if(emprunteur == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         public string GetTitre()
         {
@@ -60,7 +66,7 @@ namespace LagLibreary
         }
         public bool AjouterMembreListeAttente(Membre ajout)
         {
-            if(listeAttente.Contains(ajout) || listeAttente.Count > 2)
+            if(listeAttente.Contains(ajout) || listeAttente.Count >= 2)
             {
                 return false;
             }
