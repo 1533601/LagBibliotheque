@@ -6,12 +6,11 @@ namespace LagLibreary
     {
         Repertoire leRepertoire;
         string nom;
-        Membre[] lesMembre = new Membre[10];
+        Membre[] lesMembre;
 
         public Bibliotheque(string nomBiblio)
         {
-            throw new NotImplementedException();
-            //this.nom = nomBiblio;
+            this.nom = nomBiblio;
         }
         public string GetNom()
         {

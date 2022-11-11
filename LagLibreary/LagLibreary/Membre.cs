@@ -9,42 +9,60 @@ namespace LagLibreary
     public class Membre
     {
         string nom;
-        Document[] listeEmprunts = new Document[0];
+        List<Document> listeEmprunts;
         int noMembre;
-        static int nbMembresTotal;
+        static int nbMembresTotal = 1;
+        public Membre(string nom)
+        {
+            this.nom = nom;
+            List<Document> listeEmprunts = new List<Document>();
+            this.noMembre = nbMembresTotal;
+            nbMembresTotal++;
+        }
 
         public string GetNom()
         {
-            throw new NotImplementedException();
+            return this.nom;
         }
         public void SetNom(string value)
         {
-            throw new NotImplementedException();
+            this.nom = value;
         }
-        public Document[] GetListeEmprunt()
+        public List<Document> GetListeEmprunt()
         {
-            throw new NotImplementedException();
-            //return listeEmprunts;
+            return this.listeEmprunts;
         }
         public int GetNbEmprunts()
         {
-            throw new NotImplementedException();
+            return this.listeEmprunts.Count;
         }
         public int GetNoMembre()
         {
-            throw new NotImplementedException();
-        }
-        public Membre(string nom)
-        {
-            throw new NotImplementedException();
+            return this.noMembre;
         }
         public bool AjouterDocument(Document nouveau)
         {
-            throw new NotImplementedException();
+            if (listeEmprunts.Contains(nouveau) || listeEmprunts.Count > 4)
+            {
+                return false;
+            }
+            else
+            {
+                listeEmprunts.Add(nouveau);
+                return true;
+            }
         }
         public bool RetirerDocument(Document retrait)
         {
-            throw new NotImplementedException();
+            if (!listeEmprunts.Contains(retrait))
+            {
+                return false;
+            }
+            else
+            {
+                listeEmprunts.Remove(retrait);
+                return true;
+            }
         }
     }
 }

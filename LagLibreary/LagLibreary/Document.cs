@@ -60,7 +60,7 @@ namespace LagLibreary
         }
         public bool AjouterMembreListeAttente(Membre ajout)
         {
-            if(listeAttente.Contains(ajout) || listeAttente.Count >= 2)
+            if(listeAttente.Contains(ajout) || listeAttente.Count > 2)
             {
                 return false;
             }

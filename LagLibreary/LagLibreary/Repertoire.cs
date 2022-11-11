@@ -8,32 +8,29 @@ namespace LagLibreary
 {
     internal class Repertoire
     {
-        Document[] listeDocument = new Document[0];
+        List<Document> listeDocument;
         string nom;
 
         public Repertoire(string nomRepertoire, string nomFichier)
         {
-            //this.nom = nomRepertoire;
-            //this.nom = nomFichier;
-            throw new NotImplementedException();
+            this.nom = nomRepertoire;
+            List<Document> listeDocument = new List<Document>();
         }
-        public Document[] GetListeDocument()
+        public List<Document> GetListeDocument()
         {
             return listeDocument;
         }
         public string GetNom()
         {
-            return nom;
+            return this.nom;
         }
-        public Document[] GetListeAttente()
+        public List<Document> GetListeAttente()
         {
-            Document[] listeAttente = new Document[0];
-            return listeAttente;
+            return listeDocument;
         }
-        public Document[] GetListeEmprunts()
+        public List<Document> GetListeEmprunts()
         {
-            Document[] listeEmprunts = new Document[0];
-            return listeEmprunts;
+            return Membre.listeDocument;
         }
         public Document[] ChargerDocument(string nomFichier)
         {
