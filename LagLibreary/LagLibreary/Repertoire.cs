@@ -28,6 +28,13 @@ namespace LagLibreary
         {
             List<Document> listeAttente = new List<Document>();
             List<Document> listeEmprunts = GetListeEmprunts();
+            for(int i = 0; i < listeEmprunts.Count; i++)
+            {
+                if (listeEmprunts[i].GetListeAttente().Count <= 1)
+                {
+                    listeAttente.Add(listeEmprunts[i]);
+                }
+            }
             return listeAttente;
         }
         public List<Document> GetListeEmprunts()
@@ -42,12 +49,12 @@ namespace LagLibreary
             }
             return listeEmprunts;
         }
-        public Document[] ChargerDocument(string nomFichier)
+        public List<Document> ChargerDocument(string nomFichier)
         {
             //Document[] chargerDocument = new Document[0];
             throw new NotImplementedException();
         }
-        public Document[] TrouverDocument(string titre, string nomAuteur)
+        public List<Document> TrouverDocument(string titre, string nomAuteur)
         {
             throw new NotImplementedException();
         }
