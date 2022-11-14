@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using LagLibreary;
 
 namespace TestDLL;
@@ -7,19 +8,19 @@ namespace TestDLL;
 public class UnitTest1
 {
     //erreur lors du test car la fonction nbMembres est static poser une question au prof
-    /*
+    
     [TestMethod]
 
-    public void TestNoMembre()
+    public void ATestNoMembre()
     {
         Membre samuel = new Membre("Samuel");
         Membre guillaume = new Membre("Guillaume");
         Assert.AreEqual(1, samuel.GetNoMembre());
         Assert.AreEqual(2, guillaume.GetNoMembre());
-    }*/
+    }
 
     [TestMethod]
-    public void TestAjouterMembre()
+    public void TestAjouterMembreListeAttente()
     {
         DateTime date = new DateTime(2008, 3, 1, 7, 0, 0);
         List<Membre> listeAttente = new List<Membre>();
@@ -29,24 +30,25 @@ public class UnitTest1
         Membre francis = new Membre("Francis");
         Membre mathieu = new Membre("Mathieu");
 
-        Assert.AreEqual(true, artDeLaGuerre.AjouterMembreListeAttente(samuel));
+        Assert.AreEqual(false, artDeLaGuerre.AjouterMembreListeAttente(samuel));
+        artDeLaGuerre.SetEmprunteur(samuel);
         Assert.AreEqual(false, artDeLaGuerre.AjouterMembreListeAttente(samuel));
         Assert.AreEqual(true, artDeLaGuerre.AjouterMembreListeAttente(guillaume));
-        Assert.AreEqual(false, artDeLaGuerre.AjouterMembreListeAttente(francis));
+        Assert.AreEqual(true, artDeLaGuerre.AjouterMembreListeAttente(francis));
         Assert.AreEqual(false, artDeLaGuerre.AjouterMembreListeAttente(mathieu));
     }
     [TestMethod]
-    public void TestEnleverMembre()
+    public void TestEnleverMembreListeAttente()
     {
         DateTime date = new DateTime(2008, 3, 1, 7, 0, 0);
         List<Membre> listeAttente = new List<Membre>();
         Livre artDeLaGuerre = new Livre("L'art de la guerre", "Sun Tzu", "Apprendre l'art de la guerre", "édition philosophie", listeAttente, date, 258, "A52BJ33", "Bon");
         Membre samuel = new Membre("Samuel");
         Membre guillaume = new Membre("Guillaume");
-
-        Assert.AreEqual(true, artDeLaGuerre.AjouterMembreListeAttente(samuel));
-        Assert.AreEqual(true, artDeLaGuerre.EnleverMembreListeAttente(samuel));
-        Assert.AreEqual(false, artDeLaGuerre.EnleverMembreListeAttente(guillaume));
+        artDeLaGuerre.SetEmprunteur(samuel);
+        Assert.AreEqual(true, artDeLaGuerre.AjouterMembreListeAttente(guillaume));
+        Assert.AreEqual(false, artDeLaGuerre.EnleverMembreListeAttente(samuel));
+        Assert.AreEqual(true, artDeLaGuerre.EnleverMembreListeAttente(guillaume));
     }
     [TestMethod]
     public void TestIcomparable()

@@ -66,15 +66,19 @@ namespace LagLibreary
         }
         public bool AjouterMembreListeAttente(Membre ajout)
         {
-            if(listeAttente.Contains(ajout) || listeAttente.Count >= 2)
+            if (this.emprunteur != null)
             {
-                return false;
+                if (listeAttente.Contains(ajout) || ajout == this.emprunteur || listeAttente.Count >= 2)
+                {
+                    return false;
+                }
+                else
+                {
+                    listeAttente.Add(ajout);
+                    return true;
+                }
             }
-            else
-            {
-                listeAttente.Add(ajout);
-                return true;
-            }
+            return false;
         }
         public bool EnleverMembreListeAttente(Membre retrait)
         {

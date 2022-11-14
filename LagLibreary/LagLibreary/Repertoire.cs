@@ -26,11 +26,21 @@ namespace LagLibreary
         }
         public List<Document> GetListeAttente()
         {
-            return listeDocument;
+            List<Document> listeAttente = new List<Document>();
+            List<Document> listeEmprunts = GetListeEmprunts();
+            return listeAttente;
         }
         public List<Document> GetListeEmprunts()
         {
-            return listeDocument;
+            List<Document> listeEmprunts = new List<Document>();
+            for (int i = 0; i < this.listeDocument.Count; i++)
+            {
+                if(this.listeDocument[i].EstDisponible() == false)
+                {
+                    listeEmprunts.Add(this.listeDocument[i]);
+                }
+            }
+            return listeEmprunts;
         }
         public Document[] ChargerDocument(string nomFichier)
         {

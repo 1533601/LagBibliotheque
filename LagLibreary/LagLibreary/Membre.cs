@@ -11,7 +11,7 @@ namespace LagLibreary
         string nom;
         List<Document> listeEmprunts;
         int noMembre;
-        static int nbMembresTotal = 0;
+        static int nbMembresTotal = 1;
         public Membre(string nom)
         {
             this.noMembre = nbMembresTotal++;          
