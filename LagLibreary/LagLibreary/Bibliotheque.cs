@@ -10,28 +10,34 @@ namespace LagLibreary
         public Bibliotheque(string nomBiblio)
         {
             this.nom = nomBiblio;
+            this.lesMembre = new Membre[0];
         }
         public string GetNom()
         {
-            throw new NotImplementedException();
+            return this.nom;
 
         }
         public Membre[] GetMembres()
         {
-            throw new NotImplementedException();
+            return this.lesMembre;
         }
 
         public bool NotifierEmprunt(string nomMembre, Document leDocument)
         {
             throw new NotImplementedException();
         }
-        public Membre TrouverMembre()
+        public bool NotifierRetour(Document leDocument)
         {
             throw new NotImplementedException();
         }
-        public void AjouterMembre()
+        public Membre TrouverMembre(string nom)
         {
             throw new NotImplementedException();
+        }
+        public void AjouterMembre(Membre nouveau)
+        {
+            this.lesMembre[0] = nouveau;
+            this.lesMembre[1] = nouveau;
         }
         public bool AjouterListeAttente(Membre leMembre, Document leDoc)
         {

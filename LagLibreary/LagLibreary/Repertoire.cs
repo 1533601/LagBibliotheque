@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -124,17 +125,25 @@ namespace LagLibreary
         }
         public bool AjouterDocument(Document nouveauDoc)
         {
-            throw new NotImplementedException();
+            this.listeDocument.Add(nouveauDoc);
+            return true;
         }
         public bool SupprimerDocument(Document docASupprimer)
         {
-            throw new NotImplementedException();
+            bool siDocSupprimer = false;
+            for(int i = 0; i < this.listeDocument.Count; i++)
+            {
+                if (this.listeDocument[i] == docASupprimer)
+                {
+                    this.listeDocument.Remove(docASupprimer);
+                    siDocSupprimer = true;
+                }
+            }
+            return siDocSupprimer;
         }
         public bool VerifierDDisponibiilite(Document docAVerifier)
         {
-            throw new NotImplementedException();
+            return docAVerifier.EstDisponible();
         }
-
-
     }
 }
