@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,12 +53,74 @@ namespace LagLibreary
         }
         public List<Document> ChargerDocument(string nomFichier)
         {
-            //Document[] chargerDocument = new Document[0];
-            throw new NotImplementedException();
+            try
+            {
+                using (StreamReader sr = new StreamReader(@"" + nomFichier + ".txt"))
+                {
+                    string line;
+                    string[] colonne;
+                    string[] information = null;
+                    List<Membre> listeAttente = new List<Membre> ();
+                    int i = 0;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        colonne = line.Split(',');
+                        if (i > 0)
+                        {
+                            information = colonne;
+                        }
+                    }
+                    if (information[0] == "1")
+                    {
+                        Livre nouveauLivre = new Livre(information[1], information[2], information[3], information[4],  listeAttente, new DateTime(int.Parse(information[5]), int.Parse(information[6]), int.Parse(information[7])), int.Parse(information[8]), information[9], information[10]);
+                        this.listeDocument.Add(nouveauLivre);
+                    }
+                    if (information[0] == "2")
+                    {
+                        Periodique nouveauPeriodique = new Periodique(information[1], information[2], information[3], listeAttente, int.Parse(information[4]), int.Parse(information[5]), int.Parse(information[6]));
+                        this.listeDocument.Add(nouveauPeriodique);
+                    }
+                    if (information[0] == "3")
+                    {
+                        Audio nouveauAudio = new Audio(information[1], information[2], information[3], listeAttente, int.Parse(information[4]), information[6]);
+                        this.listeDocument.Add(nouveauAudio);
+                    }
+                    return this.listeDocument;
+                }
+            }
+            catch (OutOfMemoryException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Manque de ram pour l'execution du programme");
+                return this.listeDocument;
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("Fichier introuvable");
+                return this.listeDocument;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return this.listeDocument;
+            }
+
         }
         public List<Document> TrouverDocument(string titre, string nomAuteur)
         {
-            throw new NotImplementedException();
+            List<Document> listeDocumentTrouver = new List<Document>();
+            for (int i = 0; i < this.listeDocument.Count; i++)
+            {
+                if (this.listeDocument[i].GetTitre() == titre)
+                {
+                    if (this.listeDocument[i].GetAuteur() == nomAuteur)
+                    {
+                        listeDocumentTrouver.Add(this.listeDocument[i]);
+                    }
+                }
+            }
+            return listeDocumentTrouver;
         }
         public bool AjouterDocument(Document nouveauDoc)
         {
