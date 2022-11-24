@@ -108,20 +108,20 @@ namespace LagLibreary
             }
 
         }
-        public List<Document> TrouverDocument(string titre, string nomAuteur)
+        public Document TrouverDocument(string titre, string nomAuteur)
         {
-            List<Document> listeDocumentTrouver = new List<Document>();
+            Document document = null;
             for (int i = 0; i < this.listeDocument.Count; i++)
             {
                 if (this.listeDocument[i].GetTitre() == titre)
                 {
                     if (this.listeDocument[i].GetAuteur() == nomAuteur)
                     {
-                        listeDocumentTrouver.Add(this.listeDocument[i]);
+                        document =  listeDocument[i];
                     }
                 }
             }
-            return listeDocumentTrouver;
+            return document;
         }
         public bool AjouterDocument(Document nouveauDoc)
         {

@@ -10,7 +10,7 @@ namespace LagLibreary
         public Bibliotheque(string nomBiblio)
         {
             this.nom = nomBiblio;
-            this.lesMembre = new Membre[0];
+            this.lesMembre = new Membre[100];
         }
         public string GetNom()
         {
@@ -24,26 +24,80 @@ namespace LagLibreary
 
         public bool NotifierEmprunt(string nomMembre, Document leDocument)
         {
-            throw new NotImplementedException();
+            bool empruntReussi = false;
+            for(int i = 0; i < this.lesMembre.Length; i++)
+            {
+                if (lesMembre[i] != null)
+                {
+                    if (lesMembre[i].GetNom() == nomMembre)
+                    {
+                        empruntReussi = lesMembre[i].AjouterDocument(leDocument);
+                        if(empruntReussi == false)
+                        {
+                            AjouterListeAttente(lesMembre[i], leDocument);
+                        }
+                    }
+                }
+            }
+            return empruntReussi;
         }
         public bool NotifierRetour(Document leDocument)
         {
-            throw new NotImplementedException();
+            bool retourReussi = false;
+            for (int i = 0; i < this.lesMembre.Length; i++)
+            {
+                for(int j = 0; j > lesMembre[i].GetListeEmprunt().Count; j++)
+                {
+                    if (lesMembre[i].GetListeEmprunt()[j] != null)
+                    {
+                        retourReussi = lesMembre[i].RetirerDocument(leDocument);
+                    }
+                }
+            }
+            return retourReussi;
         }
         public Membre TrouverMembre(string nom)
         {
-            throw new NotImplementedException();
+            Membre leMembre = null;
+            for(int i = 0; i < this.lesMembre.Length; i++)
+            {
+                if(lesMembre[i] != null)
+                {
+                    if (lesMembre[i].GetNom() == nom)
+                    {
+                        leMembre = this.lesMembre[i];
+                    }
+                }
+            }
+            return leMembre;
         }
         public void AjouterMembre(Membre nouveau)
         {
-            this.lesMembre[0] = nouveau;
-            this.lesMembre[1] = nouveau;
+            int i = 0;
+            do
+            {
+                if(this.lesMembre[i] == null)
+                {
+                    this.lesMembre[i] = nouveau;
+                }
+                i++;
+            }
+            while(i != this.lesMembre.Length);
         }
         public bool AjouterListeAttente(Membre leMembre, Document leDoc)
         {
-            throw new NotImplementedException();
+            bool ajoutAccompli = false;
+            for(int i = 0; i < this.lesMembre.Length; i++)
+            {
+                if (lesMembre[i] != null)
+                {
+                    if (lesMembre[i] == leMembre)
+                    {
+                        ajoutAccompli = leDoc.AjouterMembreListeAttente(lesMembre[i]);
+                    }
+                }
+            }
+            return ajoutAccompli;
         }
     }
-
-
 }
