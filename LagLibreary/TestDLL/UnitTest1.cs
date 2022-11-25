@@ -118,4 +118,17 @@ public class UnitTest1
         Assert.AreEqual(true, samuel.RetirerDocument(artDeLaGuerre));
         Assert.AreEqual(false, samuel.RetirerDocument(artDeLaGuerre2));
     }
+    [TestMethod]
+
+    public void TestChargerDocument()
+    {
+        DateTime laDate = new DateTime(2020, 8, 14);
+        List<Membre> listeAttente = new List<Membre>();
+        Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
+        Livre hola = new Livre("hola", "hola hola", "holy cow", "holapow", listeAttente, laDate, 168, "bg56bs", "baba567");
+        leRepertoire.ChargerDocument("Livre1");
+        Document leDoc = leRepertoire.TrouverDocument("hola", "hola hola");
+        Assert.AreEqual(1, hola.CompareTo(leDoc));
+        
+    }
 }

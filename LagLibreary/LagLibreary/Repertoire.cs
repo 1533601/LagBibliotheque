@@ -17,7 +17,7 @@ namespace LagLibreary
         public Repertoire(string nomRepertoire, string nomFichier)
         {
             this.nom = nomRepertoire;
-            List<Document> listeDocument = new List<Document>();
+            this.listeDocument = new List<Document>();
         }
         public List<Document> GetListeDocument()
         {
@@ -66,7 +66,7 @@ namespace LagLibreary
                     while ((line = sr.ReadLine()) != null)
                     {
                         colonne = line.Split(',');
-                        if (i > 0)
+                        if (i >= 0)
                         {
                             information = colonne;
                         }
@@ -76,35 +76,34 @@ namespace LagLibreary
                         Livre nouveauLivre = new Livre(information[1], information[2], information[3], information[4],  listeAttente, new DateTime(int.Parse(information[5]), int.Parse(information[6]), int.Parse(information[7])), int.Parse(information[8]), information[9], information[10]);
                         this.listeDocument.Add(nouveauLivre);
                     }
-                    if (information[0] == "2")
+                    else if (information[0] == "2")
                     {
                         Periodique nouveauPeriodique = new Periodique(information[1], information[2], information[3], listeAttente, int.Parse(information[4]), int.Parse(information[5]), int.Parse(information[6]));
                         this.listeDocument.Add(nouveauPeriodique);
                     }
-                    if (information[0] == "3")
+                    else if (information[0] == "3")
                     {
                         Audio nouveauAudio = new Audio(information[1], information[2], information[3], listeAttente, int.Parse(information[4]), information[6]);
                         this.listeDocument.Add(nouveauAudio);
                     }
+                    else
+                    {
+                        throw new DocumentFormatIncorrectException();
+                    }
                     return this.listeDocument;
                 }
             }
-            catch (OutOfMemoryException e)
+            catch (OutOfMemoryException)
             {
-                Console.WriteLine(e.Message);
-                Console.WriteLine("Manque de ram pour l'execution du programme");
-                return this.listeDocument;
+                throw new OutOfMemoryException();
             }
-            catch (IOException e)
+            catch (IOException)
             {
-                Console.WriteLine(e.Message);
-                Console.WriteLine("Fichier introuvable");
-                return this.listeDocument;
+                throw new IOException();
             }
-            catch (Exception e)
+            catch (DocumentFormatIncorrectException)
             {
-                Console.WriteLine(e.Message);
-                return this.listeDocument;
+                throw new DocumentFormatIncorrectException();
             }
 
         }
@@ -121,7 +120,14 @@ namespace LagLibreary
                     }
                 }
             }
-            return document;
+            if (document == null)
+            {
+                throw new ReturnValueCannotBeNullException();
+            }
+            else
+            {
+                return document;
+            }
         }
         public bool AjouterDocument(Document nouveauDoc)
         {

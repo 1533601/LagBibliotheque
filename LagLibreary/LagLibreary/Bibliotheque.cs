@@ -69,7 +69,14 @@ namespace LagLibreary
                     }
                 }
             }
-            return leMembre;
+            if (leMembre == null)
+            {
+                throw new ReturnValueCannotBeNullException();
+            }
+            else
+            {
+                return leMembre;
+            }
         }
         public void AjouterMembre(Membre nouveau)
         {
