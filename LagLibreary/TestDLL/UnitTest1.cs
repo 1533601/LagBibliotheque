@@ -120,7 +120,7 @@ public class UnitTest1
     }
     [TestMethod]
 
-    public void TestChargerDocument()
+    public void TestChargerTrouverDocument()
     {
         DateTime laDate = new DateTime(2020, 8, 14);
         List<Membre> listeAttente = new List<Membre>();
@@ -129,6 +129,58 @@ public class UnitTest1
         leRepertoire.ChargerDocument("Livre1");
         Document leDoc = leRepertoire.TrouverDocument("hola", "hola hola");
         Assert.AreEqual(1, hola.CompareTo(leDoc));
-        
     }
+    [TestMethod]
+    public void TestChargerDocumentException()
+    {
+        try
+        {
+            Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
+            leRepertoire.ChargerDocument("Livre2");
+        }
+        catch(DocumentFormatIncorrectException)
+        {
+            return;
+        }
+        Assert.Fail();
+    }
+    [TestMethod]
+    public void TestTrouverDocumentException()
+    {
+        try
+        {
+            Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
+            leRepertoire.TrouverDocument("hola", "hola hola");
+        }
+        catch(ReturnValueCannotBeNullException)
+        {
+            return;
+        }
+        Assert.Fail();
+    }
+    [TestMethod]
+
+    public void TestAjouterSupprimerDocument()
+    {
+        Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
+        DateTime laDate = new DateTime(2020, 8, 14);
+        List<Membre> listeAttente = new List<Membre>();
+        Livre hola = new Livre("hola", "hola hola", "holy cow", "holapow", listeAttente, laDate, 168, "bg56bs", "baba567");
+        Assert.AreEqual(true, leRepertoire.AjouterDocument(hola));
+        Assert.AreEqual(true, leRepertoire.SupprimerDocument(hola));
+    }
+    [TestMethod]
+
+    public void TestAjouterTrouverMembre()
+    {
+        Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
+        Bibliotheque laBibliotheque = new Bibliotheque("biblio", leRepertoire);
+        Membre Xavier = new Membre("Xavier");
+        Membre Maurice = new Membre("Maurice");
+        laBibliotheque.AjouterMembre(Xavier);
+        laBibliotheque.AjouterMembre(Maurice);
+        Assert.AreEqual(Xavier, laBibliotheque.TrouverMembre("Xavier"));
+    }
+
+
 }

@@ -73,18 +73,39 @@ namespace LagLibreary
                     }
                     if (information[0] == "1")
                     {
-                        Livre nouveauLivre = new Livre(information[1], information[2], information[3], information[4],  listeAttente, new DateTime(int.Parse(information[5]), int.Parse(information[6]), int.Parse(information[7])), int.Parse(information[8]), information[9], information[10]);
-                        this.listeDocument.Add(nouveauLivre);
+                        if (information.Length == 11)
+                        {
+                            Livre nouveauLivre = new Livre(information[1], information[2], information[3], information[4], listeAttente, new DateTime(int.Parse(information[5]), int.Parse(information[6]), int.Parse(information[7])), int.Parse(information[8]), information[9], information[10]);
+                            this.listeDocument.Add(nouveauLivre);
+                        }
+                        else
+                        {
+                            throw new DocumentFormatIncorrectException();
+                        }
                     }
                     else if (information[0] == "2")
                     {
-                        Periodique nouveauPeriodique = new Periodique(information[1], information[2], information[3], listeAttente, int.Parse(information[4]), int.Parse(information[5]), int.Parse(information[6]));
-                        this.listeDocument.Add(nouveauPeriodique);
+                        if (information.Length == 8)
+                        {
+                            Periodique nouveauPeriodique = new Periodique(information[1], information[2], information[3], listeAttente, int.Parse(information[4]), int.Parse(information[5]), int.Parse(information[6]));
+                            this.listeDocument.Add(nouveauPeriodique);
+                        }
+                        else
+                        {
+                            throw new DocumentFormatIncorrectException();
+                        }
                     }
                     else if (information[0] == "3")
                     {
-                        Audio nouveauAudio = new Audio(information[1], information[2], information[3], listeAttente, int.Parse(information[4]), information[6]);
-                        this.listeDocument.Add(nouveauAudio);
+                        if (information.Length == 7)
+                        {
+                            Audio nouveauAudio = new Audio(information[1], information[2], information[3], listeAttente, int.Parse(information[4]), information[6]);
+                            this.listeDocument.Add(nouveauAudio);
+                        }
+                        else
+                        {
+                            throw new DocumentFormatIncorrectException();
+                        }
                     }
                     else
                     {

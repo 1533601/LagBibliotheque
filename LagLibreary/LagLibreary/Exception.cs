@@ -22,7 +22,7 @@ namespace LagLibreary
         {
             get
             {
-                return "the files format is incorrect or cannot be located";
+                return "the files format is incorrect";
             }
         }
     }

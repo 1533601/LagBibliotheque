@@ -1,4 +1,6 @@
 ﻿
+using System.Globalization;
+
 namespace LagLibreary
 {
     public class Bibliotheque
@@ -7,9 +9,10 @@ namespace LagLibreary
         string nom;
         Membre[] lesMembre;
 
-        public Bibliotheque(string nomBiblio)
+        public Bibliotheque(string nomBiblio, Repertoire leRepertoire)
         {
             this.nom = nomBiblio;
+            this.leRepertoire = leRepertoire;
             this.lesMembre = new Membre[100];
         }
         public string GetNom()
@@ -81,15 +84,17 @@ namespace LagLibreary
         public void AjouterMembre(Membre nouveau)
         {
             int i = 0;
+            int j = 0;
             do
             {
+                i = j;
                 if(this.lesMembre[i] == null)
                 {
                     this.lesMembre[i] = nouveau;
                 }
                 i++;
             }
-            while(i != this.lesMembre.Length);
+            while(i != this.lesMembre.Length || this.lesMembre[j] == nouveau);
         }
         public bool AjouterListeAttente(Membre leMembre, Document leDoc)
         {
