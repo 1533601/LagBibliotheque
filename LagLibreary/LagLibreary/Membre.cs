@@ -18,27 +18,51 @@ namespace LagLibreary
             this.nom = nom;
             this.listeEmprunts = new List<Document>();
         }
-
+        /// <summary>
+        /// retourne le nom du membre
+        /// </summary>
+        /// <returns></returns>
         public string GetNom()
         {
             return this.nom;
         }
+        /// <summary>
+        /// assign un nom au membre
+        /// </summary>
+        /// <param name="value"></param>
         public void SetNom(string value)
         {
             this.nom = value;
         }
+        /// <summary>
+        /// retourne la liste d'emprunt du membre
+        /// </summary>
+        /// <returns></returns>
         public List<Document> GetListeEmprunt()
         {
             return this.listeEmprunts;
         }
+        /// <summary>
+        /// retourne le nombre de document emprunté que le membre posède
+        /// </summary>
+        /// <returns></returns>
         public int GetNbEmprunts()
         {
             return this.listeEmprunts.Count;
         }
+        /// <summary>
+        /// retourne le no. du membre
+        /// </summary>
+        /// <returns></returns>
         public int GetNoMembre()
         {
             return this.noMembre;
         }
+        /// <summary>
+        /// Ajoute un document à la liste d'emprunt du membre
+        /// </summary>
+        /// <param name="nouveau"></param>
+        /// <returns></returns>
         public bool AjouterDocument(Document nouveau)
         {
             if (listeEmprunts.Contains(nouveau) || listeEmprunts.Count >= 4)
@@ -51,6 +75,11 @@ namespace LagLibreary
                 return true;
             }
         }
+        /// <summary>
+        /// Retire un document au membre
+        /// </summary>
+        /// <param name="retrait"></param>
+        /// <returns></returns>
         public bool RetirerDocument(Document retrait)
         {
             if (!listeEmprunts.Contains(retrait))

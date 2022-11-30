@@ -16,14 +16,26 @@ namespace LagLibreary
             this.nbMinutes = nbMinutes;
             this.format = format;
         }
+        /// <summary>
+        /// retourne le nombre de minute
+        /// </summary>
+        /// <returns></returns>
         public int GetNbMinutes()
         {
             return this.nbMinutes;
         }
+        /// <summary>
+        /// retourne le format audio
+        /// </summary>
+        /// <returns></returns>
         public string GetFormat()
         {
             return this.format;
         }
+        /// <summary>
+        /// retourne la description
+        /// </summary>
+        /// <returns></returns>
         public string GetDescription()
         {
             return Description();

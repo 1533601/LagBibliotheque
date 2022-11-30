@@ -19,14 +19,26 @@ namespace LagLibreary
             this.nom = nomRepertoire;
             this.listeDocument = new List<Document>();
         }
+        /// <summary>
+        /// retourne la liste de document du repertoire
+        /// </summary>
+        /// <returns></returns>
         public List<Document> GetListeDocument()
         {
             return listeDocument;
         }
+        /// <summary>
+        /// retourne le nom du repertoire
+        /// </summary>
+        /// <returns></returns>
         public string GetNom()
         {
             return this.nom;
         }
+        /// <summary>
+        /// retourne la de document possèdant une liste d'attente
+        /// </summary>
+        /// <returns></returns>
         public List<Document> GetListeAttente()
         {
             List<Document> listeAttente = new List<Document>();
@@ -40,6 +52,10 @@ namespace LagLibreary
             }
             return listeAttente;
         }
+        /// <summary>
+        /// retourne les document qui ne sont pas disponible
+        /// </summary>
+        /// <returns></returns>
         public List<Document> GetListeEmprunts()
         {
             List<Document> listeEmprunts = new List<Document>();
@@ -52,6 +68,14 @@ namespace LagLibreary
             }
             return listeEmprunts;
         }
+        /// <summary>
+        /// Charger un document selon un fichier texte
+        /// </summary>
+        /// <param name="nomFichier"></param>
+        /// <returns></returns>
+        /// <exception cref="OutOfMemoryException"></exception>
+        /// <exception cref="IOException"></exception>
+        /// <exception cref="DocumentFormatIncorrectException"></exception>
         public List<Document> ChargerDocument(string nomFichier)
         {
             try
@@ -128,6 +152,13 @@ namespace LagLibreary
             }
 
         }
+        /// <summary>
+        /// Trouve un document, si le document n'est pas trouvé, retourne un exception
+        /// </summary>
+        /// <param name="titre"></param>
+        /// <param name="nomAuteur"></param>
+        /// <returns></returns>
+        /// <exception cref="ReturnValueCannotBeNullException"></exception>
         public Document TrouverDocument(string titre, string nomAuteur)
         {
             Document document = null;
@@ -150,11 +181,21 @@ namespace LagLibreary
                 return document;
             }
         }
+        /// <summary>
+        /// Ajoute un document au repertoire
+        /// </summary>
+        /// <param name="nouveauDoc"></param>
+        /// <returns></returns>
         public bool AjouterDocument(Document nouveauDoc)
         {
             this.listeDocument.Add(nouveauDoc);
             return true;
         }
+        /// <summary>
+        /// Supprime un document du repertoire
+        /// </summary>
+        /// <param name="docASupprimer"></param>
+        /// <returns></returns>
         public bool SupprimerDocument(Document docASupprimer)
         {
             bool siDocSupprimer = false;
@@ -168,7 +209,12 @@ namespace LagLibreary
             }
             return siDocSupprimer;
         }
-        public bool VerifierDDisponibiilite(Document docAVerifier)
+        /// <summary>
+        /// Vérifie si un document est disponible
+        /// </summary>
+        /// <param name="docAVerifier"></param>
+        /// <returns></returns>
+        public bool VerifierDisponibiilite(Document docAVerifier)
         {
             return docAVerifier.EstDisponible();
         }

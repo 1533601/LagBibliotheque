@@ -173,8 +173,7 @@ public class UnitTest1
 
     public void TestAjouterTrouverMembre()
     {
-        Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
-        Bibliotheque laBibliotheque = new Bibliotheque("biblio", leRepertoire);
+        Bibliotheque laBibliotheque = new Bibliotheque("biblio");
         Membre Xavier = new Membre("Xavier");
         Membre Maurice = new Membre("Maurice");
         laBibliotheque.AjouterMembre(Xavier);
@@ -184,8 +183,7 @@ public class UnitTest1
     [TestMethod]
     public void TestAjouteMembreEnDouble() //la Fonction de base permettait verifier l'ajout de 100 membres si après membres la fonctions aurait crash, la fonction ayant réussi j'ai empêché l'ajout de doublon.
     {
-        Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
-        Bibliotheque laBibliotheque = new Bibliotheque("biblio", leRepertoire);
+        Bibliotheque laBibliotheque = new Bibliotheque("biblio");
         Membre Xavier = new Membre("Xavier");
         for(int i = 0; i < 105; i++)
         {
@@ -197,8 +195,7 @@ public class UnitTest1
 
     public void TestAjouterMembreListeAttenteBibliotheque()
     {
-        Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
-        Bibliotheque laBibliotheque = new Bibliotheque("biblio", leRepertoire);
+        Bibliotheque laBibliotheque = new Bibliotheque("biblio");
         List<Membre> listeAttente = new List<Membre>();
         DateTime date = new DateTime(2008, 3, 1, 7, 0, 0);
         Membre Xavier = new Membre("Xavier");
@@ -214,8 +211,7 @@ public class UnitTest1
     [TestMethod]
     public void TestNotifierAjoutEmprunt()
     {
-        Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
-        Bibliotheque laBibliotheque = new Bibliotheque("biblio", leRepertoire);
+        Bibliotheque laBibliotheque = new Bibliotheque("biblio");
         List<Membre> listeAttente = new List<Membre>();
         DateTime date = new DateTime(2008, 3, 1, 7, 0, 0);
         Membre Xavier = new Membre("Xavier");

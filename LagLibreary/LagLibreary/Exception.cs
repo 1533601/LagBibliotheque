@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace LagLibreary
 {
+    /// <summary>
+    /// Vérifier si la valeurs recherché est trouvé
+    /// </summary>
     public class ReturnValueCannotBeNullException : Exception
     {
         public override string Message
@@ -16,6 +19,9 @@ namespace LagLibreary
             }
         }
     }
+    /// <summary>
+    /// Vérifie si le format de document est correcte
+    /// </summary>
     public class DocumentFormatIncorrectException : Exception
     {
         public override string Message

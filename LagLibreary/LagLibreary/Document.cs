@@ -22,6 +22,10 @@ namespace LagLibreary
             this.listeAttente = listeattente;
             this.emprunteur = null;
         }
+        /// <summary>
+        /// retourne si le document est disponible
+        /// </summary>
+        /// <returns></returns>
         public bool EstDisponible()
         {
             if(emprunteur == null)
@@ -33,38 +37,75 @@ namespace LagLibreary
                 return false;
             }
         }
+        /// <summary>
+        /// retourne le titre
+        /// </summary>
+        /// <returns></returns>
         public string GetTitre()
         {
             return this.titre;
         }
+        /// <summary>
+        /// assigne un titre au document
+        /// </summary>
+        /// <param name="titre"></param>
         public void SetTitre(string titre)
         {
             this.titre = titre;
         }
+        /// <summary>
+        /// retourne l'auteur au document
+        /// </summary>
+        /// <returns></returns>
         public string GetAuteur()
         {
             return this.auteur;
         }
+        /// <summary>
+        /// assigne un auteur
+        /// </summary>
+        /// <param name="auteur"></param>
         public void SetAuteur(string auteur)
         {
             this.auteur = auteur;
         }
+        /// <summary>
+        /// retourne l'emprunteur
+        /// </summary>
+        /// <returns></returns>
         public Membre GetEmprunteur()
         {
             return this.emprunteur;
         }
+        /// <summary>
+        /// assign un emprunteur
+        /// </summary>
+        /// <param name="emprunteur"></param>
         public void SetEmprunteur(Membre emprunteur)
         {
             this.emprunteur = emprunteur;
         }
+        /// <summary>
+        /// retourne la liste d'attente du document
+        /// </summary>
+        /// <returns></returns>
         public List<Membre> GetListeAttente()
         {
             return this.listeAttente;
         }
+        /// <summary>
+        /// retourne la description du document
+        /// </summary>
+        /// <returns></returns>
         public string Description()
         {
             return this.description;
         }
+        /// <summary>
+        /// Ajoute un membre à liste d'attente du document
+        /// </summary>
+        /// <param name="ajout"></param>
+        /// <returns></returns>
         public bool AjouterMembreListeAttente(Membre ajout)
         {
             if (this.emprunteur != null)
@@ -81,6 +122,11 @@ namespace LagLibreary
             }
             return false;
         }
+        /// <summary>
+        /// Enleve un membre de la liste d'attente
+        /// </summary>
+        /// <param name="retrait"></param>
+        /// <returns></returns>
         public bool EnleverMembreListeAttente(Membre retrait)
         {
             if(!listeAttente.Contains(retrait))
@@ -93,6 +139,11 @@ namespace LagLibreary
                 return true;
             }
         }
+        /// <summary>
+        /// Compare deux document pour voir si ils sont similaire selon le nom
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public int CompareTo(Document other)
         {
             if(this.titre == other.GetTitre())
