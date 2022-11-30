@@ -34,10 +34,15 @@ namespace LagLibreary
                 {
                     if (lesMembre[i].GetNom() == nomMembre)
                     {
-                        empruntReussi = lesMembre[i].AjouterDocument(leDocument);
-                        if(empruntReussi == false)
+                        if (leDocument.GetEmprunteur() == null)
                         {
-                            AjouterListeAttente(lesMembre[i], leDocument);
+                            leDocument.SetEmprunteur(lesMembre[i]);
+                            lesMembre[i].AjouterDocument(leDocument);
+                            empruntReussi = true;
+                        }
+                        else
+                        {
+                            leDocument.AjouterMembreListeAttente(lesMembre[i]);
                         }
                     }
                 }
@@ -47,13 +52,33 @@ namespace LagLibreary
         public bool NotifierRetour(Document leDocument)
         {
             bool retourReussi = false;
+            bool membreRetirer = false;
             for (int i = 0; i < this.lesMembre.Length; i++)
             {
-                for(int j = 0; j > lesMembre[i].GetListeEmprunt().Count; j++)
+                if (lesMembre[i] != null)
                 {
-                    if (lesMembre[i].GetListeEmprunt()[j] != null)
+                    if (leDocument.GetEmprunteur() == lesMembre[i])
                     {
-                        retourReussi = lesMembre[i].RetirerDocument(leDocument);
+                        if (lesMembre[i].GetListeEmprunt().Contains(leDocument))
+                        {
+                            if (leDocument.GetListeAttente().Count() == 0)
+                            {
+                                if (membreRetirer == false)
+                                {
+                                    lesMembre[i].RetirerDocument(leDocument);
+                                    leDocument.SetEmprunteur(null);
+                                    retourReussi = true;
+                                }
+                            }
+                            else
+                            {
+                                lesMembre[i].RetirerDocument(leDocument);
+                                leDocument.SetEmprunteur(leDocument.GetListeAttente().First());
+                                leDocument.GetListeAttente().First().AjouterDocument(leDocument);
+                                leDocument.EnleverMembreListeAttente(leDocument.GetListeAttente().First());
+                                membreRetirer = true;
+                            }
+                        }
                     }
                 }
             }

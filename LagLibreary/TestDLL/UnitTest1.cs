@@ -193,4 +193,39 @@ public class UnitTest1
         }
         Assert.AreEqual(laBibliotheque.GetMembres()[0], Xavier);
     }
+    [TestMethod]
+
+    public void TestAjouterMembreListeAttenteBibliotheque()
+    {
+        Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
+        Bibliotheque laBibliotheque = new Bibliotheque("biblio", leRepertoire);
+        List<Membre> listeAttente = new List<Membre>();
+        DateTime date = new DateTime(2008, 3, 1, 7, 0, 0);
+        Membre Xavier = new Membre("Xavier");
+        Membre Maurice = new Membre("Maurice");
+        laBibliotheque.AjouterMembre(Xavier);
+        laBibliotheque.AjouterMembre(Maurice);
+        Livre artDeLaGuerre = new Livre("L'art de la guerre", "Sun Tzu", "Apprendre l'art de la guerre", "édition philosophie", listeAttente, date, 258, "A52BJ33", "Bon");
+        Assert.AreEqual(false, laBibliotheque.AjouterListeAttente(Maurice, artDeLaGuerre));
+        artDeLaGuerre.SetEmprunteur(Maurice);
+        Assert.AreEqual(false, laBibliotheque.AjouterListeAttente(Maurice, artDeLaGuerre));
+        Assert.AreEqual(true, laBibliotheque.AjouterListeAttente(Xavier, artDeLaGuerre));
+    }
+    [TestMethod]
+    public void TestNotifierAjoutEmprunt()
+    {
+        Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
+        Bibliotheque laBibliotheque = new Bibliotheque("biblio", leRepertoire);
+        List<Membre> listeAttente = new List<Membre>();
+        DateTime date = new DateTime(2008, 3, 1, 7, 0, 0);
+        Membre Xavier = new Membre("Xavier");
+        Membre Maurice = new Membre("Maurice");
+        Livre artDeLaGuerre = new Livre("L'art de la guerre", "Sun Tzu", "Apprendre l'art de la guerre", "édition philosophie", listeAttente, date, 258, "A52BJ33", "Bon");
+        laBibliotheque.AjouterMembre(Xavier);
+        laBibliotheque.AjouterMembre(Maurice);
+        Assert.AreEqual(true, laBibliotheque.NotifierEmprunt("Xavier", artDeLaGuerre));
+        Assert.AreEqual(false, laBibliotheque.NotifierEmprunt("Maurice", artDeLaGuerre));
+        Assert.AreEqual(false, laBibliotheque.NotifierRetour(artDeLaGuerre));
+        Assert.AreEqual(true, laBibliotheque.NotifierRetour(artDeLaGuerre));
+    }
 }
