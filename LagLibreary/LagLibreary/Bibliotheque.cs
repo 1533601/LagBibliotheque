@@ -84,17 +84,17 @@ namespace LagLibreary
         public void AjouterMembre(Membre nouveau)
         {
             int i = 0;
-            int j = 0;
+            bool aAjouter = false;
             do
             {
-                i = j;
-                if(this.lesMembre[i] == null)
+                if (this.lesMembre[i] == null || lesMembre.Contains(nouveau))
                 {
                     this.lesMembre[i] = nouveau;
+                    aAjouter = true;
                 }
                 i++;
             }
-            while(i != this.lesMembre.Length || this.lesMembre[j] == nouveau);
+            while (aAjouter == false && i < lesMembre.Length) ;
         }
         public bool AjouterListeAttente(Membre leMembre, Document leDoc)
         {

@@ -181,6 +181,16 @@ public class UnitTest1
         laBibliotheque.AjouterMembre(Maurice);
         Assert.AreEqual(Xavier, laBibliotheque.TrouverMembre("Xavier"));
     }
-
-
+    [TestMethod]
+    public void TestAjouteMembreEnDouble() //la Fonction de base permettait verifier l'ajout de 100 membres si après membres la fonctions aurait crash, la fonction ayant réussi j'ai empêché l'ajout de doublon.
+    {
+        Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
+        Bibliotheque laBibliotheque = new Bibliotheque("biblio", leRepertoire);
+        Membre Xavier = new Membre("Xavier");
+        for(int i = 0; i < 105; i++)
+        {
+            laBibliotheque.AjouterMembre(Xavier);
+        }
+        Assert.AreEqual(laBibliotheque.GetMembres()[0], Xavier);
+    }
 }
