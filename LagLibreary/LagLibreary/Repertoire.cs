@@ -109,7 +109,7 @@ namespace LagLibreary
                     }
                     else if (information[0] == "2")
                     {
-                        if (information.Length == 8)
+                        if (information.Length == 7)
                         {
                             Periodique nouveauPeriodique = new Periodique(information[1], information[2], information[3], listeAttente, int.Parse(information[4]), int.Parse(information[5]), int.Parse(information[6]));
                             this.listeDocument.Add(nouveauPeriodique);
@@ -121,9 +121,9 @@ namespace LagLibreary
                     }
                     else if (information[0] == "3")
                     {
-                        if (information.Length == 7)
+                        if (information.Length == 6)
                         {
-                            Audio nouveauAudio = new Audio(information[1], information[2], information[3], listeAttente, int.Parse(information[4]), information[6]);
+                            Audio nouveauAudio = new Audio(information[1], information[2], information[3], listeAttente, int.Parse(information[4]), information[5]);
                             this.listeDocument.Add(nouveauAudio);
                         }
                         else

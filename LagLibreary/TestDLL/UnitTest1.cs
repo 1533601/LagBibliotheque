@@ -131,6 +131,12 @@ public class UnitTest1
         Assert.AreEqual(1, hola.CompareTo(leDoc));
     }
     [TestMethod]
+    public void TestChargerTrouverAudio()
+    {
+        Repertoire leRepertoire = new Repertoire("leRepertoire", "leFichier");
+        leRepertoire.ChargerDocument("podcast");
+    }
+    [TestMethod]
     public void TestChargerDocumentException()
     {
         try
